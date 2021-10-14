@@ -22,7 +22,7 @@ jobs:
         flutter pub get
 
     - name: Build
-      run: flutter build web
+      run: flutter build web --release --base-href '/flutter_practice/'
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
