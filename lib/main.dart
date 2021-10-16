@@ -73,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     // AudioPlayerインスタンスの初期化
     AudioPlayer _audioPlayer = AudioPlayer();
+    // AudioCacheインスタンスの初期化（１度だけ）
+    AudioCache _player = AudioCache();
 
     return Scaffold(
       appBar: AppBar(
@@ -101,13 +103,23 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              child: const Text('効果音 再生'),
+              child: const Text('AudioPlayerで再生'),
               style: ElevatedButton.styleFrom(
                 primary: Colors.orange,
                 onPrimary: Colors.white,
               ),
               onPressed: () {
-                _audioPlayer.play('assets/sounds/correct.mp3');
+                _audioPlayer.play('sounds/correct.mp3');
+              },
+            ),
+            ElevatedButton(
+              child: const Text('AudioCacheで再生'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                onPrimary: Colors.white,
+              ),
+              onPressed: () {
+                _player.play('sounds/correct.mp3');
               },
             ),
             const Text(
